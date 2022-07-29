@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { UserController, AuthController } from '../../controllers/index'
+import { UserController, AuthController } from '../../controllers/index';
 
 const route = Router();
 
@@ -9,10 +9,17 @@ export default (app: Router) => {
 	route.post('/signup', async (req: Request, res: Response) => {
 		const { name, password, email } = req.body;
 		try {
-			const newEmployer = await UserController.createUser(email, password, name);
-			return res.send({ message: `User ${newEmployer.email} has been created` }).status(201).end();
+			const newEmployer = await UserController.createUser(
+				email,
+				password,
+				name,
+			);
+			return res
+				.status(201)
+				.send({ message: `User ${newEmployer.email} has been created` })
+				.end();
 		} catch (e) {
-			return res.send({ error: e }).status(400).end();
+			return res.status(400).send({ error: e }).end();
 		}
 	});
 
@@ -22,13 +29,12 @@ export default (app: Router) => {
 			const isTokenValid = await AuthController.authenticate(email, password);
 			if (isTokenValid) {
 				return res
-					.send({ auth: true, JWTtoken: isTokenValid, user: email })
 					.status(200)
+					.send({ auth: true, JWTtoken: isTokenValid, user: email })
 					.end();
 			}
 		} catch (e) {
-			return res.send({ auth: false, error: e }).status(401).end();
+			return res.status(401).send({ auth: false, error: e }).end();
 		}
 	});
-
 };

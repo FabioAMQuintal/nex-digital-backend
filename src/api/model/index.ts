@@ -1,1 +1,1 @@
-export { default as DAL } from './dal/userDAL'; 
+export { default as DAL } from './dal/userDAL';

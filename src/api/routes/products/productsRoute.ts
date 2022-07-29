@@ -5,11 +5,10 @@ import { ProductsController } from '../../controllers/index';
 const route = Router();
 
 export default (app: Router) => {
-    app.use('/products', route);
+	app.use('/products', route);
 
-    route.get('/', AuthMiddleware, async (req: Request, res: Response) => {
-        const random = ProductsController.randomCars()
-        return res.send({ random }).status(201).end();
-    })
-
+	route.get('/', AuthMiddleware, async (req: Request, res: Response) => {
+		const random = ProductsController.randomCars();
+		return res.status(201).send({ random }).end();
+	});
 };

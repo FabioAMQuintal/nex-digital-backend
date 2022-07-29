@@ -13,6 +13,6 @@ export default (
 		req.decoded = decoded;
 		next();
 	} catch (e) {
-		res.status?.(401).send({ error: e });
+		res.status?.(401).send({ error: 'Invalid JWT token' });
 	}
 };
