@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import AuthController from '../../controllers/auth/auth';
+import AuthController from '../../controllers/auth/authController';
 
 export default (
 	req: Partial<Request>,

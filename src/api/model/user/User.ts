@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize'
 import sequelizeConnection from '../sequelize/sequelize'
 
-import { UserInput, UserOuput, IUser} from '../../../types/user'
+import { UserInput, IUser } from '../../../types/user'
 
 
 class User extends Model<IUser, UserInput> implements IUser {
@@ -32,6 +32,7 @@ User.init({
         allowNull: false,
       }
   }, {
+    modelName: 'users',
     timestamps: true,
     sequelize: sequelizeConnection,
     paranoid: true

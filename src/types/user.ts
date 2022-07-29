@@ -1,9 +1,10 @@
 export interface IUser {
-  id: number;
+  id?: number;
   name: string;
   email: string;
   password: string;
+  hash?: string;
 }
 
-export interface UserInput extends Required<IUser>{}
-export interface UserOuput extends Required<IUser> {}
+export interface UserInput extends Partial<IUser>{}
+export interface UserOuput extends Partial<IUser> {}
