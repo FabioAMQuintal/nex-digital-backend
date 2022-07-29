@@ -14,9 +14,6 @@ class UserController {
 		const newUser = await DAL.create({ name, password, email })
 		return newUser;
 	}
-
-	
-
 }
 
 export default new UserController();
