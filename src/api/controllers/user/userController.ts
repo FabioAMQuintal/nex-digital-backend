@@ -15,6 +15,8 @@ class UserController {
 		return newUser;
 	}
 
+	
+
 }
 
 export default new UserController();

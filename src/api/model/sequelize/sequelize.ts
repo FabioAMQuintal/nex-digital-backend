@@ -4,8 +4,7 @@ import { Sequelize } from 'sequelize';
 
 const sequelizeConnection = new Sequelize(config.db.dbName, config.db.dbUser, config.db.dbPassword, {
     host: config.db.dbHost,
-    dialect: "postgres",
-    logging: console.log
+    dialect: "postgres"
 });
 
 const checkConnection = async () => {
